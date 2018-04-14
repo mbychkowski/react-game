@@ -1,0 +1,14 @@
+.card {
+  background: #fff;
+  border-radius: 2px;
+  margin: 1rem;
+  position: relative;
+  height: 180px;
+  width: 20%;
+  float: left;
+  background:#6CADDC;
+}
+
+.card > .img-container > img {
+  height: 180px;
+}

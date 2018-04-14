@@ -4,9 +4,19 @@ import './App.css';
 import Jumbotron from './components/Jumbotron';
 import MemoryCard from './components/MemoryCard';
 import Navbar from './components/Navbar';
+import memoryCards from './memoryCards.json';
 // import Wrapper from './components/Wrapper';
 
 class App extends Component {
+
+  state = {
+    memoryCards
+  };
+
+  updateMemoryCard = id => {
+
+  }
+
   render() {
     return (
 
@@ -20,9 +30,14 @@ class App extends Component {
           description="Click a different tile everytime"/>
 
         <div className="container">
-        <MemoryCard
-          name="card-1"
-          img="http://www.color-hex.com/palettes/8227.png" />
+          {this.state.memoryCards.map(memoryCard => (
+
+            <MemoryCard
+              id={memoryCard.id}
+              name={memoryCard.name}
+              image={memoryCard.image} />
+
+          ))}
         </div>
 
       </div>

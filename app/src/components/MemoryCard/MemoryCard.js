@@ -4,9 +4,10 @@ import './MemoryCard.css';
 const MemoryCard = props => {
 
   return(
-
-    <div className="img-container">
-      <img alt={props.name} src={props.img}/>
+    <div className="card">
+      <div className="img-container">
+        <img id={props.id} alt={props.name} src={props.image}/>
+      </div>
     </div>
 
   )
