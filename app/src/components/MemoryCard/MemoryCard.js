@@ -4,9 +4,9 @@ import './MemoryCard.css';
 const MemoryCard = props => {
 
   return(
-    <div className="card">
+    <div className="card" data-id={props.id} onClick={() => props.updateMemoryCard(props.id)}>
       <div className="img-container">
-        <img id={props.id} alt={props.name} src={props.image}/>
+        <img alt={props.name} src={props.image}/>
       </div>
     </div>
 
