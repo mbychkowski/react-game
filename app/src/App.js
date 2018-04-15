@@ -12,7 +12,8 @@ let idArr = [0,1,2,3,4,5,6,7,8,9,10,11];
 class App extends Component {
 
   state = {
-    memoryCards
+    memoryCards,
+    score: 0
   };
 
   updateMemoryCard = id => {
@@ -29,6 +30,8 @@ class App extends Component {
       return a.id - b.id
     });
 
+    let score = this.state.score++
+
     this.setState({ memoryCards });
 
     idArr = [0,1,2,3,4,5,6,7,8,9,10,11];
@@ -40,7 +43,8 @@ class App extends Component {
       <div className="App">
 
         <Navbar
-          logo={logo}/>
+          logo={logo}
+          score={this.state.score}/>
 
         <Jumbotron
           title="Clicky Game!"
