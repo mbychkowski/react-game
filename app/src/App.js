@@ -8,15 +8,19 @@ import memoryCards from './memoryCards.json';
 // import Wrapper from './components/Wrapper';
 
 let idArr = [0,1,2,3,4,5,6,7,8,9,10,11];
+let guessArr = [];
 
 class App extends Component {
 
   state = {
     memoryCards,
-    score: 0
+    score: 0,
+    message: 'Click an image to begin!',
   };
 
   updateMemoryCard = id => {
+
+    let guess = this.state.memoryCards[id];
 
     this.state.memoryCards.map(memoryCard => {
 
@@ -30,11 +34,23 @@ class App extends Component {
       return a.id - b.id
     });
 
-    let score = this.state.score++
+    // Check if memory card has been clicked before
+    if(guessArr.includes(guess)) {
+      this.state.score = 0;
+      this.state.message = 'Try Again!'
+      guessArr = [];
+
+    } else {
+      this.state.score++
+      this.state.message = 'Correct!';
+      guessArr.push(guess);
+
+    }
 
     this.setState({ memoryCards });
 
     idArr = [0,1,2,3,4,5,6,7,8,9,10,11];
+
   }
 
   render() {
@@ -44,7 +60,8 @@ class App extends Component {
 
         <Navbar
           logo={logo}
-          score={this.state.score}/>
+          score={this.state.score}
+          message={this.state.message}/>
 
         <Jumbotron
           title="Clicky Game!"
